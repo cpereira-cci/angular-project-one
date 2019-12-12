@@ -1,0 +1,9 @@
+<H2>List of Users</H2>
+
+
+<div *ngIf="userService.users">
+<div *ngFor="let user of userService.users ">
+    <!-- {{userService.users.login}} -->
+    {{user.login}}
+</div>
+</div>
