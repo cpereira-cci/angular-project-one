@@ -1,16 +1,10 @@
-<nav class="navbar navbar-dark bg-primary justify-content-between">
-    <a class="navbar-brand">GitHub Users</a>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand" routerLink="" (click)="clearPage();searchInput.value=''">GitHub Users</a>
     <div class="form-inline">
-      <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #searchText (input)="onSearch(searchText.value)">
-      <ul class="search-result">
-            <li *ngFor="let hero of heroes$ | async" >
-              <a routerLink="/detail/{{hero.id}}">
-                {{hero.name}}
-              </a>
-            </li>
-          </ul>
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit"
-        (click)="nSoearch(searchText.value)"
-      >Search</button>
+      <!-- <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #searchText (input)="onSearch(searchText.value)"> -->
+      <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="model" [ngbTypeahead]="search" (keyup)="onSearchFocus()" #searchInput>
+   
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="clickSearch()">
+        Search</button>
     </div>
   </nav>

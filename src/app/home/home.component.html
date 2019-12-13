@@ -1,9 +1,25 @@
-<H2>List of Users</H2>
+<div class="container">
+<H2 class="text-center">  Users</H2>
 
 
 <div *ngIf="userService.users">
-<div *ngFor="let user of userService.users ">
-    <!-- {{userService.users.login}} -->
-    {{user.login}}
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let user of userService.users">
+          <div class="card mb-4 shadow-sm">
+            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+            <img src="{{user.avatar_url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-text text-secondary text-center">{{user.login}}</h5>
+              <div class="text-center">
+                
+                 <a routerLink="/user/{{user.login}}" > <button type="button" class="btn btn-lg btn-outline-secondary align-center">View Profile</button></a>
+            </div>
+     
+            </div>
+          </div>
+        </div>
+    </div>
+
 </div>
 </div>

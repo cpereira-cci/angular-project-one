@@ -1,0 +1,64 @@
+<div class="container mt-5">
+        <button type="button" class="btn btn-secondary btn-sm" (click)=goBack()>
+                &lt; &lt; Back
+              </button>
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="text-center text-dark">{{user.name}}</h1>
+
+            <div *ngIf="user.bio" class=" text-center">
+                <p class="text-muted">{{user.bio}}</p>
+            </div>
+            <a href="{{user.html_url}}"><div *ngIf="user.name" class=" ">
+                <p class="text-muted"><span class="badge badge-dark">username: </span> <span class="text-secondary">
+                        {{user.login}}</span></p>
+            </div></a>
+            <div *ngIf="user.company">
+                <p class=""><span class="badge badge-dark">Company: </span> <span class="text-secondary">
+                        {{user.company}}</span> </p>
+            </div>
+
+            <p class="text-muted"><span class="badge badge-dark">Followers: </span> <span class="text-secondary">
+                    {{user.followers}}</span> </p>
+            <p class="text-muted"><span class="badge badge-dark">Following: </span> <span class="text-secondary">
+                    {{user.following}}</span> </p>
+            <div *ngIf="user.location">
+                <p class=""><span class="badge badge-dark">Location: </span> <span class="text-secondary">
+                        {{user.location}}</span> </p>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-6">
+            <img src="{{user.avatar_url}}" alt="">
+        </div>
+    </div>
+
+    <!-- <div *ngFor="let repo of repos">
+                    <p>{{repo.name}}</p>
+                </div> -->
+    <hr>
+    <h4 class="text-center pt-3">Repositories</h4>
+    <div class="row mt-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="list-group">
+                <a href="{{repo.html_url}}" class="list-group-item list-group-item-action " *ngFor="let repo of repos">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{repo.name}}</h5>
+                        <small>{{getLastUpdated(user) | date:'yyyy-MM-dd'}} </small>
+                    </div>
+                    <p class="mb-1">{{repo.description}}</p>
+                    <small>
+                        <span class="badge badge-warning mr-3">{{repo.language}}</span>
+                        <span class="badge badge-primary mr-3">forks:{{repo.forks}}</span>
+                    </small>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+</div>
